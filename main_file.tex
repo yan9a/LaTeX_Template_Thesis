@@ -1,0 +1,109 @@
+%-----------------------------------------------------------------
+%Author: Yan Naing Aye
+%Date:   2012 Feb 24
+%-----------------------------------------------------------------
+\documentclass[12pt,a4paper]{report}      % Specifies the document class
+
+\usepackage{graphicx} %for pdf, bitmapped graphics files
+\usepackage{amsmath} %to facilitate writing math formulas and to improve the typographical quality
+\usepackage{amssymb}  %provides an extended symbol collection
+\usepackage{wasysym} %pro­vides many glyphs
+\usepackage{subfigure} %for subfigures
+\usepackage{epstopdf} %converts eps to pdf
+%\usepackage{fullpage} %to use full page
+\usepackage[table]{xcolor} %color extensions (for tables)
+%\usepackage[numbers]{natbib} %reimplementation of \cite command
+\usepackage{datetime} %date time
+\usepackage[pdftitle={Aye-Thesis},pdfauthor={Yan Naing Aye}]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\usepackage[font={small,sf},labelfont=bf]{caption} %to change figure caption font
+%\usepackage{float} %to use figure with [H] option
+%\usepackage{fancyhdr} %fancy headers
+%-----------------------------------------------------------------
+%Macros
+\def\titleSentence{REAL-TIME HIGH PERFORMANCE DISPLACEMENT SENSING IN HANDHELD INSTRUMENT FOR MICROSURGERY}
+% I use this title in several places throughout the report
+% that is why I define it as \titleSentence command 
+% so that I only need to change here and all will be updated accordingly
+%-----------------------------------------------------------------
+\newdateformat{mydate}{\THEYEAR} %year only
+%\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR} %use this for month and year
+%-----------------------------------------------------------------
+%\newcommand{\ip}[2]{(#1, #2)}
+
+% Define a new command called \los to include list of symbol easily.
+% It is used in ListOfSymbols.tex file
+\newcommand{\los}[2]{\parbox[t]{5cm}{$#1 \dotfill$}  \parbox[t]{10cm}{#2}\\[0.6cm]}                                                    %-----------------------------------------------------------------        
+\renewcommand{\bibname}{References}%change Bibliography to References                         
+\renewcommand{\baselinestretch}{1.5} %linespace
+%\linespread{1.6}
+%-----------------------------------------------------------------
+\pagestyle{headings}    %comment out usepackage{fullpage} to use headings style
+%-----------------------------------------------------------------
+\begin{document}        %End of preamble and beginning of text.
+	%\input{./Files/Title_Comfirmation.tex} %Title page for comfirmation report
+	\input{./Files/Title_Hard.tex} 	%Title page for thesis hardbound
+	\input{./Files/Title.tex} 	%Title page for thesis
+	%-----------------------------------------------------------------------------
+	\newpage
+	\pagenumbering{roman}  %added it if has Acknowledgment
+	%\chapter*{Abstract}
+	%\addcontentsline{toc}{chapter}{Abstract}
+	\begin{abstract}
+		\input{./Files/Abstract}
+	\end{abstract}
+	%-----------------------------------------------------------------
+	\newpage
+	\chapter*{Acknowledgments}
+	\addcontentsline{toc}{chapter}{Acknowledgment}
+	\input{./Files/Acknowledge}
+	% -----------------------------------------------------------------
+	\newpage
+	\addcontentsline{toc}{chapter}{Table of Contents}
+	\tableofcontents
+	%------------------------------------------------------------------
+	\newpage
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\listoffigures
+	%-----------------------------------------------------------------
+	\newpage
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\listoftables
+	\clearpage
+	%-----------------------------------------------------------------
+	\newpage
+	\markboth{\MakeUppercase{List of Symbols and Abbreviations}}{\MakeUppercase{List of Symbols and Abbreviations}}
+	\chapter*{List of Symbols and Abbreviations\hfill} 
+	\addcontentsline{toc}{chapter}{List of Symbols and Abbreviations}
+	\input{./Files/ListOfSymbols}
+	\clearpage
+	%-----------------------------------------------------------------
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+%-----------------------------------------------------------------
+\input{./Files/Ch_Intro}
+%-----------------------------------------------------------------
+\input{./Files/Ch_Literature}
+%-----------------------------------------------------------------
+\input{./Files/Ch_SystemDesign}
+%-----------------------------------------------------------------
+\input{./Files/Ch_Conclusion}
+%-----------------------------------------------------------------
+\appendix
+\input{./Files/ApErr}
+%-----------------------------------------------------------------
+\bibliographystyle{ieeetr}
+%\bibliographystyle{cell}
+%\bibliographystyle{apalike}
+\bibliography{./Files/Ref}
+\addcontentsline{toc}{chapter}{References}
+% -----------------------------------------------------------------
+\end{document}
+% -----------------------------------------------------------------
